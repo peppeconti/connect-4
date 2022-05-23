@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Control from './components/Control';
+import Modal from './components/Modal';
 import Stage from './components/Stage';
 import { createStage } from './stageData';
 
@@ -20,6 +21,7 @@ function App() {
     <div className='App'>
       <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />
       <Control player={player} newGame={newGame} onStart={startNewGame} />
+      <Modal player={player}/>
     </div>
   );
 }
