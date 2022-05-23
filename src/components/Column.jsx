@@ -4,15 +4,13 @@ import Cell from './Cell';
 
 const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGame }) => {
 
-    const checkVertical = (directive, copyStage) => {
+    const checkColumn = (directive, copyStage) => {
         const column = [...directive];
-        // console.log(column);
+        // CHECK COLUMN UP
         for (let j = 1; copyStage[column[0].x][column[0].y + j] === player; j++) {
             const equalDisk = { x: id, y: column[0].y + j };
             column.push(equalDisk);
-            //console.log(column);
             if (column.length === 4) {
-                //console.log(column);
                 column.forEach((cell) => {
                     copyStage[cell.x][cell.y] = `${player} connected`;
                 });
@@ -23,28 +21,75 @@ const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGa
 
     const checkRow = (directive, copyStage) => {
         const row = [...directive];
-        // console.log(column);
-        // CHECK =>
+        // CHECK RIGHT
         for (let j = 1; copyStage[row[0].x + j] && copyStage[row[0].x + j][row[0].y] === player; j++) {
             const equalDisk = { x: id + j, y: row[0].y };
             row.push(equalDisk);
-            console.log(row);
             if (row.length === 4) {
-                //console.log(column);
                 row.forEach((cell) => {
                     copyStage[cell.x][cell.y] = `${player} connected`;
                 });
                 setNewGame(0);
             }
         }
-        // CHECK <=
+        // CHECK LEFT
         for (let j = 1; copyStage[row[0].x - j] && copyStage[row[0].x - j][row[0].y] === player; j++) {
             const equalDisk = { x: id - j, y: row[0].y };
             row.push(equalDisk);
-            console.log(row);
             if (row.length === 4) {
-                //console.log(column);
                 row.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+    }
+
+    const checkDiagonal_1 = (directive, copyStage) => {
+        const diagonal = [...directive];
+        // CHECK UP LEFT
+        for (let j = 1; (copyStage[diagonal[0].x + j] && copyStage[diagonal[0].y + j]) && copyStage[diagonal[0].x + j][diagonal[0].y + j] === player; j++) {
+            const equalDisk = { x: id + j, y: diagonal[0].y + j };
+            diagonal.push(equalDisk);
+            if (diagonal.length === 4) {
+                diagonal.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+        // CHECK DOWN RIGHT
+        for (let j = 1; (copyStage[diagonal[0].x - j] && copyStage[diagonal[0].y - j]) && copyStage[diagonal[0].x - j][diagonal[0].y - j] === player; j++) {
+            const equalDisk = { x: id - j, y: diagonal[0].y - j };
+            diagonal.push(equalDisk);
+            if (diagonal.length === 4) {
+                diagonal.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+    }
+
+    const checkDiagonal_2 = (directive, copyStage) => {
+        const diagonal = [...directive];
+        // CHECK UP RIGHT
+        for (let j = 1; (copyStage[diagonal[0].x - j] && copyStage[diagonal[0].y + j]) && copyStage[diagonal[0].x - j][diagonal[0].y + j] === player; j++) {
+            const equalDisk = { x: id - j, y: diagonal[0].y + j };
+            diagonal.push(equalDisk);
+            if (diagonal.length === 4) {
+                diagonal.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+        // CHECK DOWN LEFT
+        for (let j = 1; (copyStage[diagonal[0].x + j] && copyStage[diagonal[0].y - j]) && copyStage[diagonal[0].x + j][diagonal[0].y - j] === player; j++) {
+            const equalDisk = { x: id + j, y: diagonal[0].y - j };
+            diagonal.push(equalDisk);
+            if (diagonal.length === 4) {
+                diagonal.forEach((cell) => {
                     copyStage[cell.x][cell.y] = `${player} connected`;
                 });
                 setNewGame(0);
@@ -64,9 +109,12 @@ const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGa
             const directive = [];
             copyStage[id][copyStage[id].length - i] = player;
             directive.push({ x: id, y: copyStage[id].length - i });
-            // console.log(directive);
-            checkVertical(directive, copyStage);
+            // CHECK ALL DIRECTIONS
+            checkColumn(directive, copyStage);
             checkRow(directive, copyStage);
+            checkDiagonal_1(directive, copyStage);
+            checkDiagonal_2(directive, copyStage);
+            // UPDATE GAME STATE
             setPlayer(prev => prev === 'green' ? prev = 'red' : prev = 'green');
             setStage(copyStage);
         } else {
