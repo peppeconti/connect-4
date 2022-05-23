@@ -69,3 +69,7 @@
 .red {
     background: #ff5959;
 }
+
+.game-over {
+    background: rgb(94, 94, 255);
+}

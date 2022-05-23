@@ -19,7 +19,7 @@ function App() {
   return (
     <div className='App'>
       <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />
-      <Control player={player} onStart={startNewGame} />
+      <Control player={player} newGame={newGame} onStart={startNewGame} />
     </div>
   );
 }
