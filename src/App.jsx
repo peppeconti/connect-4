@@ -11,15 +11,15 @@ function App() {
   const [newGame, setNewGame] = useState(false);
 
   const startNewGame = () => {
-        setNewGame(true);
-        setPlayer('green');
-        setStage(createStage());
+    setNewGame(true);
+    setPlayer('green');
+    setStage(createStage());
   }
 
   return (
     <div className='App'>
       <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />
-      <Control player={player} onStart={startNewGame}/>
+      <Control player={player} onStart={startNewGame} />
     </div>
   );
 }

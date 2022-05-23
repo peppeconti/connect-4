@@ -9,11 +9,12 @@ const Control = ({ player, onStart }) => {
         <section className='ctrWrapper'>
             <aside className='control'>
                 <div className='head'>
-                    <h1 className='title'>Connect 4</h1>
+                    <h1 className='title'>CONNECT 4</h1>
                 </div>
                 <div className='turn'>
-                    <h2 className='player'>{playerName}</h2>
-                    <div className={`disk ${player}`} />
+                    <div className={`disk ${player}`}>
+                        <h2 className='player'>{playerName}</h2>
+                    </div>
                 </div>
                 <div className='button'>
                     <button className='startButton' onClick={onStart}>New Game</button>

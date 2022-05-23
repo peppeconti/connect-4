@@ -4,3 +4,7 @@
   font-size: 100%;
   box-sizing: border-box;
 }
+
+body {
+  background: rgb(214, 214, 214);
+}
