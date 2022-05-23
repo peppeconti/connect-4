@@ -12,8 +12,8 @@ const Control = ({ player, newGame, onStart }) => {
                     <h1 className='title'>CONNECT 4</h1>
                 </div>
                 <div className='turn'>
-                    <div className={`disk ${newGame? player: 'game-over'}`}>
-                        {newGame && <h2 className='player'>{playerName}</h2>}
+                    <div className={`disk ${newGame === 2 ? player : 'game-over'}`}>
+                        {newGame === 2 && <h2 className='player'>{playerName}</h2>}
                     </div>
                 </div>
                 <div className='button'>

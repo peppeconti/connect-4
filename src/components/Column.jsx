@@ -16,13 +16,13 @@ const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGa
                 column.forEach((cell) => {
                     copyStage[cell.x][cell.y] = `${player} connected`;
                 });
-                setNewGame(false);
+                setNewGame(0);
             }
         }
     }
 
     const dropDisk = (id, i = 1) => {
-        if (!newGame) {
+        if (newGame !== 2) {
             return;
         }
         const copyStage = [...stage];

@@ -1,8 +1,14 @@
 .modal {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    top: 10%;
     left: 50%;
-    height: 40vh;
-    width: 40vw;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    height: 12.5rem;
+    width: 20rem;
     background: #fff;
 }

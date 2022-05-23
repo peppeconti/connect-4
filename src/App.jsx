@@ -9,10 +9,10 @@ function App() {
 
   const [stage, setStage] = useState(createStage());
   const [player, setPlayer] = useState('green');
-  const [newGame, setNewGame] = useState(false);
+  const [newGame, setNewGame] = useState(1);
 
   const startNewGame = () => {
-    setNewGame(true);
+    setNewGame(2);
     setPlayer('green');
     setStage(createStage());
   }
@@ -21,7 +21,7 @@ function App() {
     <div className='App'>
       <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />
       <Control player={player} newGame={newGame} onStart={startNewGame} />
-      <Modal player={player}/>
+      {newGame === 0 && <Modal player={player}/>}
     </div>
   );
 }
