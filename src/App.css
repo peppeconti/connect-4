@@ -1,0 +1,18 @@
+:root {
+    --width: 35rem;
+}
+
+.App {
+    display: flex;
+    height: auto;
+    justify-content: space-around;
+    min-height: 100vh;
+    padding: 1.5rem 10vw;
+    background: rgb(214, 214, 214);
+}
+
+@media only screen and (max-width: 1250px) {
+    .App {
+        padding: 1.5rem 8vw;
+    }
+}

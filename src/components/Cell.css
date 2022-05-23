@@ -1,0 +1,25 @@
+.empty {
+    background: linear-gradient(225deg, #cfcfcf, #f6f6f6);
+}
+
+.green {
+    background: #5be172;
+}
+
+.red {
+    background: #ff5959;
+}
+
+.connected {
+    /*animation: rotating 1.5s infinite;*/
+    animation: rotating 1s infinite;
+}
+
+@keyframes rotating {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
