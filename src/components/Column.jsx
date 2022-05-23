@@ -21,6 +21,37 @@ const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGa
         }
     }
 
+    const checkRow = (directive, copyStage) => {
+        const row = [...directive];
+        // console.log(column);
+        // CHECK =>
+        for (let j = 1; copyStage[row[0].x + j] && copyStage[row[0].x + j][row[0].y] === player; j++) {
+            const equalDisk = { x: id + j, y: row[0].y };
+            row.push(equalDisk);
+            console.log(row);
+            if (row.length === 4) {
+                //console.log(column);
+                row.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+        // CHECK <=
+        for (let j = 1; copyStage[row[0].x - j] && copyStage[row[0].x - j][row[0].y] === player; j++) {
+            const equalDisk = { x: id - j, y: row[0].y };
+            row.push(equalDisk);
+            console.log(row);
+            if (row.length === 4) {
+                //console.log(column);
+                row.forEach((cell) => {
+                    copyStage[cell.x][cell.y] = `${player} connected`;
+                });
+                setNewGame(0);
+            }
+        }
+    }
+
     const dropDisk = (id, i = 1) => {
         if (newGame !== 2) {
             return;
@@ -35,6 +66,7 @@ const Column = ({ col, id, stage, setStage, player, setPlayer, newGame, setNewGa
             directive.push({ x: id, y: copyStage[id].length - i });
             // console.log(directive);
             checkVertical(directive, copyStage);
+            checkRow(directive, copyStage);
             setPlayer(prev => prev === 'green' ? prev = 'red' : prev = 'green');
             setStage(copyStage);
         } else {
