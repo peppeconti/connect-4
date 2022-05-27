@@ -18,8 +18,6 @@
     max-height: 35rem;
     padding: 0 1rem;
     text-align: center;
-
-    border: 1px solid red;
 }
 
 .head, .button {
@@ -72,4 +70,16 @@
 
 .game-over {
     background: rgb(94, 94, 255);
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .ctrWrapper {
+        width: 100vw;
+        height: 10vh;
+    }
+    
+    .control {
+        display: flex;
+    }
 }
