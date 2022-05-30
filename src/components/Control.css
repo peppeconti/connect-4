@@ -5,25 +5,27 @@
 .ctrWrapper {
     width: 15rem;
     min-width: 15rem;
-    height: 100%;
+    height: calc((var(--width)/7)*6);
     display: flex;
     align-items: center;
 }
 
 .control {
-    display: grid;
-    grid-template-rows: 1fr 4fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    min-height: calc((var(--width)/7)*6);
-    max-height: 35rem;
+    height: 100%;
     padding: 0 1rem;
     text-align: center;
+    border: 1px solid red;
 }
 
 .head, .button {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 5rem;
 }
 
 .title {
@@ -75,11 +77,22 @@
 @media only screen and (max-width: 1000px) {
 
     .ctrWrapper {
-        width: 100vw;
-        height: 10vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 0 1rem;
+        width: 100%;
+        height: 200px;
     }
     
     .control {
-        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .head, .turn, .button {
+        flex-grow: 1;
     }
 }
