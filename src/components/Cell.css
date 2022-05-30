@@ -12,47 +12,15 @@
 
 .connected {
   /*animation: rotating 1.5s infinite;*/
-  /*animation: rotating 1s infinite;
-  z-index: 0;*/
-  border: 2px solid black;
+  animation: blinker 1.2s infinite;
 }
 
-@keyframes rotating {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@-webkit-keyframes rotating {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@-moz-keyframes rotating {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
-}
-
-@-o-keyframes rotating {
-  from {
-    transform: rotateY(0deg);
-  }
-
-  to {
-    transform: rotateY(360deg);
-  }
+@keyframes blinker {
+  70% { transform:translateY(0%); }
+    80% { transform:translateY(-15%); }
+    90% { transform:translateY(0%); }
+    95% { transform:translateY(-7%); }
+    97% { transform:translateY(0%); }
+    99% { transform:translateY(-3%); }
+    100% { transform:translateY(0); }
 }
