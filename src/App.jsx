@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import Control from './components/Control';
 import Modal from './components/Modal';
 import Stage from './components/Stage';
 import { createStage } from './stageData';
@@ -19,8 +18,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />
-      <Control player={player} newGame={newGame} onStart={startNewGame} />
+      <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} startNewGame={startNewGame} />
       {newGame === 0 && <Modal player={player}/>}
     </div>
   );

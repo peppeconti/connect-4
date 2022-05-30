@@ -1,67 +1,21 @@
-:root {
-    --width: 35rem;
-}
-
-.control-wrapper {
-    height: 100%;
-    width: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .control {
-    width: 15rem !important;
-    min-width: 15rem !important;
-    height: calc((var(--width)/7)*6) !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
     height: 100%;
-    padding: 0 1rem;
-    text-align: center;
+    background: rgb(146, 146, 146);
+    box-shadow: 2px 2px 10px rgb(14, 14, 14);
+    border-radius: 20px;
+    padding: 1rem 0;
 }
 
-.head, .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5rem;
-}
-
-.title {
-    font-size: 2rem;
-}
-
-.startButton {
-    outline: none;
-    border-radius: 3rem;
-    cursor: pointer;
-    border: none;
-    width: 100%;
-    height: 70%;
-}
-
-.startButton:hover {
-    opacity: .8;
-}
-
-.turn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 3rem 0;
-}
-
-.disk {
-    height: 8rem;
-    width: 8rem;
+.player {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(225deg, #cfcfcf, #f6f6f6);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 7px -7px 14px #7c7c7c;
 }
 
 .green {
@@ -72,33 +26,25 @@
     background: #ff5959;
 }
 
-.game-over {
-    background: rgb(94, 94, 255);
+.button {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background: #747474;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 7px -7px 14px #7c7c7c;
+}
+
+.button:hover {
+    opacity: .8;
 }
 
 @media only screen and (max-width: 1000px) {
-
-    .control-wrapper {
-        height: 25%;
-        width: 100%;
-        margin-bottom: 5rem;
-    }
-
     .control {
-        width: inherit !important;
-        height: 100% !important;
         flex-direction: row;
-        align-items: center;
-        padding: 0;
-    }
-
-    .turn, .button, .head {
-        width: 33%;
-        padding: 0;
-    }
-
-    .disk {
-        height: 5rem;
-        width: 5rem;
+        text-align: center;
     }
 }

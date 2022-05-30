@@ -3,12 +3,7 @@
 }
 
 .stage-wrapper {
-    width: 45%;
-    min-width: var(--width);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .main {
@@ -24,14 +19,20 @@
     min-height: calc((var(--width)/7)*6);
 }
 
+.start-panel {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 3rem);
+    height: 100%;
+    width: 110px;
+    padding: .5rem;
+}
+
 @media only screen and (max-width: 1000px) {
-    .stage-wrapper {
+    .start-panel {
+        top: calc(100% + 3rem);
+        left: 0;
+        height: 100px;
         width: 100%;
-        min-width: var(--width);
-        height: 70%;
-        min-height: calc((var(--width)/7)*6);
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 }
