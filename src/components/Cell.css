@@ -1,25 +1,57 @@
 .empty {
-    background: linear-gradient(225deg, #cfcfcf, #f6f6f6);
+  background: linear-gradient(225deg, #cfcfcf, #f6f6f6);
 }
 
 .green {
-    background: #5be172;
+  background: #5be172;
 }
 
 .red {
-    background: #ff5959;
+  background: #ff5959;
 }
 
 .connected {
-    /*animation: rotating 1.5s infinite;*/
-    animation: rotating 1s infinite;
+  /*animation: rotating 1.5s infinite;*/
+  animation: rotating 1s infinite;
+  z-index: 0;
 }
 
 @keyframes rotating {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(360deg);
-    }
+  from {
+    transform: rotateY(0deg);
   }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotating {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@-moz-keyframes rotating {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@-o-keyframes rotating {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}

@@ -9,7 +9,7 @@ function App() {
   const [stage, setStage] = useState(createStage());
   const [player, setPlayer] = useState('green');
   const [newGame, setNewGame] = useState(1);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   const startNewGame = () => {
     setNewGame(2);
