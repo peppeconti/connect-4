@@ -11,7 +11,7 @@ const Stage = ({ stage, setStage, player, setPlayer, newGame, setNewGame, startN
                 {stage.map((col, index) => <Column key={index} id={index} col={col} stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} />)}
             </section>
             <aside className='start-panel'>
-                <Control onStart={startNewGame} player={player} />
+                <Control onStart={startNewGame} player={player} newGame={newGame} />
             </aside>
         </div>
     )
