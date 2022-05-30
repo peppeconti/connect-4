@@ -2,6 +2,15 @@
     --width: 35rem;
 }
 
+.stage-wrapper {
+    width: 45%;
+    min-width: var(--width);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -15,6 +24,14 @@
     min-height: calc((var(--width)/7)*6);
 }
 
-@media only screen and (max-width: 620px) {
-    
+@media only screen and (max-width: 1000px) {
+    .stage-wrapper {
+        width: 100%;
+        min-width: var(--width);
+        height: 70%;
+        min-height: calc((var(--width)/7)*6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

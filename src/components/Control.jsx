@@ -6,7 +6,7 @@ const Control = ({ player, newGame, onStart }) => {
     const playerName = player === 'green' ? 'Player 1' : 'Player 2';
 
     return (
-        <section className='ctrWrapper'>
+        <section className='control-wrapper'>
             <aside className='control'>
                 <div className='head'>
                     <h1 className='title'>CONNECT 4</h1>
