@@ -12,8 +12,9 @@
 
 .connected {
   /*animation: rotating 1.5s infinite;*/
-  animation: rotating 1s infinite;
-  z-index: 0;
+  /*animation: rotating 1s infinite;
+  z-index: 0;*/
+  border: 2px solid black;
 }
 
 @keyframes rotating {
