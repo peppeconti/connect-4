@@ -21,18 +21,10 @@ function App() {
     if (newGame === 0) setModal(true);
   }, [newGame]);
 
-  useEffect(() => {
-    if (modal) {
-      setTimeout(() => {
-        setModal(false);
-      }, 15000)
-    }
-  }, [modal]);
-
   return (
     <div className='App'>
       <Stage stage={stage} setStage={setStage} player={player} setPlayer={setPlayer} newGame={newGame} setNewGame={setNewGame} startNewGame={startNewGame} />
-      {modal && <Modal player={player} />}
+      {modal && <Modal player={player} setModal={setModal} />}
     </div>
   );
 }
