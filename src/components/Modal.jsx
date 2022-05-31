@@ -8,7 +8,17 @@ const Backdrop = () => {
     );
 };
 
-const Winner = ({ player, closingTime }) => {
+const Winner = ({ player }) => {
+
+    const [closingTime, setClosingTime] = useState(10);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setClosingTime(prev => prev - 1)
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [setClosingTime]);
 
     return (
         <div className='winner'>
@@ -22,26 +32,16 @@ const portalElement = document.getElementById('overlays');
 
 const Modal = ({ player, setModal }) => {
 
-    const [closingTime, setClosingTime] = useState(10);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setClosingTime(prev => prev - 1)
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [setClosingTime]);
-
     useEffect(() => {
         setTimeout(() => {
             setModal(false);
-        }, 11)
+        }, 11000)
     }, [setModal]);
 
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop />, portalElement)}
-            {ReactDOM.createPortal(<Winner player={player} closingTime={closingTime} />, portalElement)}
+            {ReactDOM.createPortal(<Winner player={player} />, portalElement)}
         </Fragment>
     );
 };
