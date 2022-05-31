@@ -12,6 +12,26 @@
 
 .connected {
   animation: blinker 1.2s infinite;
+  position: relative;
+}
+
+.connected:after, .connected:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #2d2d2d;
+  width: 70%;
+  height: 20%;
+  border-radius: 2rem;
+}
+
+.connected:before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.connected:after {
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 @keyframes blinker {
@@ -20,7 +40,7 @@
   }
 
   80% {
-    transform: translateY(-20%);
+    transform: translateY(-15%);
   }
 
   90% {
@@ -28,7 +48,7 @@
   }
 
   95% {
-    transform: translateY(-12%);
+    transform: translateY(-6%);
   }
 
   97% {
@@ -36,7 +56,7 @@
   }
 
   99% {
-    transform: translateY(-5%);
+    transform: translateY(-3%);
   }
 
   100% {
