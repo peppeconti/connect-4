@@ -7,7 +7,8 @@ const Cell = ({ color }) => {
         width: '100%',
         height: '100%',
         borderRadius: '50%',
-        boxShadow:  '7px -7px 14px #7c7c7c'
+        boxShadow:  '7px -7px 14px #7c7c7c',
+        caretColor: 'transparent'
     }
 
     return (
